@@ -1,6 +1,6 @@
 # TODO: Add gem version from lib file.
 
-version = "2.1.0"
+version = "3.0.0"
 
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-portfolio}
