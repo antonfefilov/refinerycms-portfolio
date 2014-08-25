@@ -27,10 +27,14 @@ module Refinery
         end
 
         private
-        def find_gallery
-          @gallery = Gallery.find(params[:gallery_id]) if params[:gallery_id]
+
+        def item_params
+          params.require(:item).permit(:title, :caption, :image_id, :gallery_id, :position)
         end
 
+        def find_gallery
+          @gallery = Gallery.friendly.find(params[:gallery_id]) if params[:gallery_id]
+        end
       end
     end
   end

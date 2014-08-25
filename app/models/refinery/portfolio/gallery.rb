@@ -8,15 +8,7 @@ module Refinery
       friendly_id :title, :use => [:slugged]
       translates :title, :body
 
-      class Translation
-        attr_accessible :locale
-      end
-
       has_many    :items, :dependent => :destroy
-
-      attr_accessible   :title, :body, :lft, :rgt,
-                        :position, :gallery_type, :depth,
-                        :parent_id, :images
 
       alias_attribute :description, :body
 
@@ -73,7 +65,7 @@ module Refinery
         #
         # That is:
         # [1 2 3] - [1 2 4] = [3]
-        removed_items = items.find_all_by_image_id(existing_image_ids - @image_ids)
+        removed_items = items.where(image_id: existing_image_ids - @image_ids)
         removed_items.map(&:destroy)
       end
     end
