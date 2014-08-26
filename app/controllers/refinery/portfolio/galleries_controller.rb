@@ -11,7 +11,7 @@ module Refinery
       end
 
       def show
-        @gallery = Gallery.find(params[:id])
+        @gallery = Gallery.friendly.find(params[:id])
         @galleries = @gallery.children
         @items = @gallery.items
         present(@page)
