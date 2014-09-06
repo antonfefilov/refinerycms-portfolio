@@ -1,0 +1,5 @@
+ru:
+  refinery:
+    plugins:
+      portfolio:
+        title: Портфолио
